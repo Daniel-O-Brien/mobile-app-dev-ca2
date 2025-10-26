@@ -31,7 +31,17 @@ class VideoGameMemStore : VideoGameStore {
         }
     }
 
+    override fun delete(videoGame: VideoGameModel) {
+        var foundVideoGame: VideoGameModel? = videoGames.find { p -> p.id == videoGame.id }
+        i("found video game")
+        if (foundVideoGame != null) {
+            videoGames.remove(foundVideoGame)
+            i("deletes game")
+            logAll()
+        }
+    }
+
     private fun logAll() {
-        videoGames.forEach { i("$it") }
+        videoGames.forEach { i("Video Games: $it") }
     }
 }

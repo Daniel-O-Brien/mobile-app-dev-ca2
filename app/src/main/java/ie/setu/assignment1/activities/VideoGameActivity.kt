@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View.VISIBLE
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
@@ -48,6 +49,7 @@ class VideoGameActivity : AppCompatActivity() {
             Picasso.get()
                 .load(videoGame.image)
                 .into(binding.VideoGameImage)
+            binding.btnDelete.visibility = VISIBLE
         }
 
         binding.btnAdd.setOnClickListener() {
@@ -64,6 +66,13 @@ class VideoGameActivity : AppCompatActivity() {
                 }
             }
             i("add Button Pressed: $videoGame")
+            setResult(RESULT_OK)
+            finish()
+        }
+
+        binding.btnDelete.setOnClickListener() {
+            app.videoGame.delete(videoGame.copy())
+            i("delete Button Pressed: $videoGame")
             setResult(RESULT_OK)
             finish()
         }

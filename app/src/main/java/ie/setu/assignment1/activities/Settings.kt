@@ -10,19 +10,18 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import ie.setu.assignment1.R
 import ie.setu.assignment1.adapters.VideoGameAdapter
 import ie.setu.assignment1.adapters.VideoGameListener
-import ie.setu.assignment1.databinding.ActivityVideogameListBinding
+import ie.setu.assignment1.databinding.ActivitySettingsBinding
 import ie.setu.assignment1.main.MainApp
 import ie.setu.assignment1.models.VideoGameModel
-import timber.log.Timber.i
 
-class VideoGameListActivity : AppCompatActivity(), VideoGameListener {
+class Settings : AppCompatActivity() {
 
     lateinit var app: MainApp
-    private lateinit var binding: ActivityVideogameListBinding
+    private lateinit var binding: ActivitySettingsBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityVideogameListBinding.inflate(layoutInflater)
+        binding = ActivitySettingsBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.toolbar.title = title
         setSupportActionBar(binding.toolbar)
@@ -31,7 +30,6 @@ class VideoGameListActivity : AppCompatActivity(), VideoGameListener {
 
         val layoutManager = LinearLayoutManager(this)
         binding.recyclerView.layoutManager = layoutManager
-        binding.recyclerView.adapter = VideoGameAdapter(app.videoGame.findAll(),this)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -63,20 +61,13 @@ class VideoGameListActivity : AppCompatActivity(), VideoGameListener {
             }
         }
 
-    override fun onVideoGameClick(VideoGame: VideoGameModel) {
-        val launcherIntent = Intent(this, VideoGameActivity::class.java)
-        launcherIntent.putExtra("VideoGame_edit", VideoGame)
-        getClickResult.launch(launcherIntent)
-    }
-
     private val getClickResult =
         registerForActivityResult(
             ActivityResultContracts.StartActivityForResult()
         ) {
             if (it.resultCode == RESULT_OK) {
-//                (binding.recyclerView.adapter)?.
-//                notifyItemRangeChanged(0,app.videoGame.findAll().size)
-                binding.recyclerView.adapter = VideoGameAdapter(app.videoGame.findAll(),this)
+                (binding.recyclerView.adapter)?.
+                notifyItemRangeChanged(0,app.videoGame.findAll().size)
             }
         }
 }
