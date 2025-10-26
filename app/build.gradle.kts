@@ -2,8 +2,9 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.parcelize)
-}
 
+}
+// https://kotlinlang.org/docs/serialization.html
 android {
     namespace = "ie.setu.assignment1"
     compileSdk {

@@ -57,8 +57,9 @@ class VideoGameListActivity : AppCompatActivity(), VideoGameListener {
             ActivityResultContracts.StartActivityForResult()
         ) {
             if (it.resultCode == RESULT_OK) {
-                (binding.recyclerView.adapter)?.
-                notifyItemRangeChanged(0,app.videoGame.findAll().size)
+//                (binding.recyclerView.adapter)?.
+//                notifyItemRangeChanged(0,app.videoGame.findAll().size)
+                binding.recyclerView.adapter = VideoGameAdapter(app.videoGame.findAll(),this)
             }
         }
 

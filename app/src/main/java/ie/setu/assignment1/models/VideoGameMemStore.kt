@@ -39,6 +39,10 @@ class VideoGameMemStore : VideoGameStore {
         }
     }
 
+    override fun wipe() {
+        videoGames.clear()
+    }
+
     private fun logAll() {
         videoGames.forEach { i("Video Games: $it") }
     }

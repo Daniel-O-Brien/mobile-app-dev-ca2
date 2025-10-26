@@ -1,18 +1,13 @@
 package ie.setu.assignment1.activities
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.LinearLayoutManager
 import ie.setu.assignment1.R
-import ie.setu.assignment1.adapters.VideoGameAdapter
 import ie.setu.assignment1.databinding.ActivitySettingsBinding
-import ie.setu.assignment1.databinding.ActivityVideogameBinding
 import ie.setu.assignment1.main.MainApp
-import ie.setu.assignment1.models.VideoGameModel
+import timber.log.Timber.i
 
 class SettingsActivity : AppCompatActivity() {
 
@@ -24,10 +19,16 @@ class SettingsActivity : AppCompatActivity() {
 
         binding = ActivitySettingsBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        binding.toolbarCancel.title = title
-        setSupportActionBar(binding.toolbarCancel)
+        binding.toolbarSettings.title = title
+        setSupportActionBar(binding.toolbarSettings)
 
         app = application as MainApp
+
+        binding.btnWipe.setOnClickListener() {
+            app.videoGame.wipe()
+            setResult(RESULT_OK)
+            finish()
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

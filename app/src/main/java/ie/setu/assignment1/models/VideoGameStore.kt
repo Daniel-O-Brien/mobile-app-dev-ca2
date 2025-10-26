@@ -5,4 +5,5 @@ interface VideoGameStore {
     fun create(videoGame: VideoGameModel)
     fun update(videoGame: VideoGameModel)
     fun delete(videoGame: VideoGameModel)
+    fun wipe()
 }
