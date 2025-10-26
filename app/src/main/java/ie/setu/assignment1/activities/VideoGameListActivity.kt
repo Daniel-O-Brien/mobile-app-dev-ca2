@@ -13,7 +13,6 @@ import ie.setu.assignment1.adapters.VideoGameListener
 import ie.setu.assignment1.databinding.ActivityVideogameListBinding
 import ie.setu.assignment1.main.MainApp
 import ie.setu.assignment1.models.VideoGameModel
-import timber.log.Timber.i
 
 class VideoGameListActivity : AppCompatActivity(), VideoGameListener {
 
@@ -46,7 +45,7 @@ class VideoGameListActivity : AppCompatActivity(), VideoGameListener {
                 getResult.launch(launcherIntent)
             }
             R.id.settings -> {
-                val launcherIntent = Intent(this, Settings::class.java)
+                val launcherIntent = Intent(this, SettingsActivity::class.java)
                 getResult.launch(launcherIntent)
             }
         }
