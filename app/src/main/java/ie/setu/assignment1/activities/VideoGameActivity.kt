@@ -45,6 +45,7 @@ class VideoGameActivity : AppCompatActivity() {
             videoGame = intent.extras?.getParcelable("VideoGame_edit")!!
             binding.videoGameTitle.setText(videoGame.title)
             binding.description.setText(videoGame.description)
+            binding.developer.setText(videoGame.developer)
             binding.btnAdd.setText(R.string.save_VideoGame)
             Picasso.get()
                 .load(videoGame.image)
@@ -55,6 +56,7 @@ class VideoGameActivity : AppCompatActivity() {
         binding.btnAdd.setOnClickListener() {
             videoGame.title = binding.videoGameTitle.text.toString()
             videoGame.description = binding.description.text.toString()
+            videoGame.developer = binding.developer.text.toString()
             if (videoGame.title.isEmpty()) {
                 Snackbar.make(it,R.string.enter_VideoGame_title, Snackbar.LENGTH_LONG)
                     .show()

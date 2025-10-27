@@ -2,7 +2,6 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.parcelize)
-
 }
 // https://kotlinlang.org/docs/serialization.html
 android {
@@ -53,4 +52,6 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
     implementation(libs.timber)
     implementation(libs.picasso)
+    implementation(libs.kotlinx.serialization)
+    implementation(libs.gson)
 }
