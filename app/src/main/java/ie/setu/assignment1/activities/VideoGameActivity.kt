@@ -108,7 +108,7 @@ class VideoGameActivity : AppCompatActivity() {
                     RESULT_OK -> {
                         if (result.data != null) {
                             i("Got Result ${result.data!!.data}")
-                            videoGame.image = result.data!!.data!!
+                            videoGame.image = result.data!!.data!!.toString()
                             Picasso.get()
                                 .load(videoGame.image)
                                 .into(binding.VideoGameImage)

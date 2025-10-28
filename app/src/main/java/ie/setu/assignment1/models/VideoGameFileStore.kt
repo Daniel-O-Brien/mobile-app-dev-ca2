@@ -2,20 +2,54 @@ package ie.setu.assignment1.models
 
 import com.google.gson.Gson
 import android.content.Context
+import com.google.gson.GsonBuilder
+import com.google.gson.reflect.TypeToken
 import timber.log.Timber.i
+import java.io.File
 import java.io.FileOutputStream
 import java.io.ObjectOutputStream
 
 // https://medium.com/@zorbeytorunoglu/serialization-and-deserialization-on-kotlin-android-81596ac6da8e
+// https://developer.android.com/training/data-storage/app-specific
+// https://developer.android.com/reference/android/content/Context
+// https://www.bezkoder.com/kotlin-parse-json-gson/#GsonfromJson_method
+// https://developer.android.com/reference/java/io/File#exists()
 
 
 data class Data(val a : ArrayList<VideoGameModel>)
 
-class VideoGameFileStore : VideoGameStore {
+class VideoGameFileStore(val context: Context): VideoGameStore {
 
-    val videoGames = ArrayList<VideoGameModel>()
+    lateinit var videoGames : ArrayList<VideoGameModel>
 
     val gson = Gson()
+
+    val typeToken = object : TypeToken<ArrayList<VideoGameModel>>() {}.type
+
+    fun save(data: ArrayList<VideoGameModel>) {
+        val file = gson.toJson(data)
+        context.openFileOutput("data", Context.MODE_PRIVATE).use {
+            i("1111 " + file)
+            it.write(file.toByteArray())
+            i("2222" + file.toByteArray())
+
+        }
+    }
+
+    fun load(){
+        if(File(context.filesDir, "data").exists()) {
+            val data = context.openFileInput("data").bufferedReader().use { it.readText() }
+            i(data)
+            if (!data.isEmpty()) {
+                i("3"+ gson.fromJson<ArrayList<VideoGameModel>>(data, typeToken).toString())
+                videoGames = gson.fromJson<ArrayList<VideoGameModel>>(data, typeToken)
+            }
+        }
+        else {
+            i("3")
+            videoGames = ArrayList<VideoGameModel>()
+        }
+    }
 
     override fun findAll(): List<VideoGameModel> {
         return videoGames
@@ -24,8 +58,7 @@ class VideoGameFileStore : VideoGameStore {
     override fun create(videoGame: VideoGameModel) {
         videoGame.id = getId()
         videoGames.add(videoGame)
-        val jsonString = gson.toJson(videoGame)
-        i("%s%s", "JSON STRING", jsonString)
+        save(videoGames)
         logAll()
     }
 

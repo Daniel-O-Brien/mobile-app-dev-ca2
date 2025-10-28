@@ -8,11 +8,13 @@ import timber.log.Timber.i
 
 class MainApp : Application() {
 
-    val videoGame = VideoGameFileStore()
+    val videoGame = VideoGameFileStore(this)
+
 
     override fun onCreate() {
         super.onCreate()
         Timber.plant(Timber.DebugTree())
         i("VideoGame started")
+        videoGame.load()
     }
 }
