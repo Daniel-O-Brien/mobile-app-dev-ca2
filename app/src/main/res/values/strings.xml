@@ -4,6 +4,7 @@
     <string name="hint_VideoGameTitle">Video Game Title</string>
     <string name="hint_VideoGameDescription">Description</string>
     <string name="hint_VideoGameDeveloper">Developer</string>
+    <string name="hint_releasedVideoGameDate">Release Date</string>
     <string name="menu_addVideoGame">Add</string>
     <string name="menu_cancelVideoGame">Cancel</string>
     <string name="enter_VideoGame_title"> Please enter a Video Game Title </string>

@@ -75,15 +75,24 @@
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:layout_margin="8dp"
-                    android:hint="@string/hint_VideoGameDeveloper"
+                    android:hint="@string/hint_releasedVideoGameDate"
                     android:importantForAutofill="no"
-                    android:inputType="text"
+                    android:datePickerMode="calendar"
                     android:maxLength="25"
                     android:maxLines="1"
                     android:padding="8dp"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="14sp"
                     tools:ignore="VisualLintTextFieldSize" />
+
+                <DatePicker
+                    android:id="@+id/released"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:importantForAutofill="no"
+                    android:calendarViewShown="true"
+                    android:spinnersShown="true" />
 
                 <Button
                     android:id="@+id/chooseImage"

@@ -16,6 +16,7 @@ import ie.setu.assignment1.main.MainApp
 import ie.setu.assignment1.models.VideoGameModel
 import ie.setu.assignment1.helpers.showImagePicker
 import timber.log.Timber.i
+import java.time.LocalDate
 
 class VideoGameActivity : AppCompatActivity() {
 
@@ -46,6 +47,8 @@ class VideoGameActivity : AppCompatActivity() {
             binding.videoGameTitle.setText(videoGame.title)
             binding.description.setText(videoGame.description)
             binding.developer.setText(videoGame.developer)
+            i("123321" + videoGame.releaseDate.monthValue)
+            binding.released.updateDate(videoGame.releaseDate.year, videoGame.releaseDate.monthValue-1, videoGame.releaseDate.dayOfMonth)
             binding.btnAdd.setText(R.string.save_VideoGame)
             if(videoGame.image.isNotBlank()) {
                 Picasso.get()
@@ -83,6 +86,10 @@ class VideoGameActivity : AppCompatActivity() {
 
         binding.chooseImage.setOnClickListener {
             showImagePicker(imageIntentLauncher)
+        }
+
+        binding.released.setOnDateChangedListener { _, y, m, d ->
+            videoGame.releaseDate = LocalDate.of(y, m+1, d)
         }
 
         registerImagePickerCallback()

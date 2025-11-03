@@ -62,6 +62,8 @@ class VideoGameFileStore(val context: Context): VideoGameStore {
         if (foundVideoGame != null) {
             foundVideoGame.title = videoGame.title
             foundVideoGame.description = videoGame.description
+            foundVideoGame.developer = videoGame.developer
+            foundVideoGame.releaseDate = videoGame.releaseDate
             logAll()
         }
     }
