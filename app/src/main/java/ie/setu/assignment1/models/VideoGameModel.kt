@@ -5,7 +5,7 @@ import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 import java.time.LocalDate
 
-//https://www.baeldung.com/kotlin/dates
+//https://www.baeldung.com/kotli1n/dates
 
 @Parcelize
 data class VideoGameModel(var id: Long = 0,
