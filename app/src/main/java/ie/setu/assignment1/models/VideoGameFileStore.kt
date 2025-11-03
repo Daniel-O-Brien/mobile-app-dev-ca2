@@ -29,26 +29,21 @@ class VideoGameFileStore(val context: Context): VideoGameStore {
     fun save(data: ArrayList<VideoGameModel>) {
         val file = gson.toJson(data)
         context.openFileOutput("data", Context.MODE_PRIVATE).use {
-            i("1111 " + file)
             it.write(file.toByteArray())
-            i("2222" + file.toByteArray())
-
         }
     }
 
     fun load(){
         if(File(context.filesDir, "data").exists()) {
+
             val data = context.openFileInput("data").bufferedReader().use { it.readText() }
             i(data)
             if (!data.isEmpty()) {
-                i("3"+ gson.fromJson<ArrayList<VideoGameModel>>(data, typeToken).toString())
                 videoGames = gson.fromJson<ArrayList<VideoGameModel>>(data, typeToken)
             }
         }
-        else {
-            i("3")
+        else
             videoGames = ArrayList<VideoGameModel>()
-        }
     }
 
     override fun findAll(): List<VideoGameModel> {
@@ -75,12 +70,14 @@ class VideoGameFileStore(val context: Context): VideoGameStore {
         var foundVideoGame: VideoGameModel? = videoGames.find { p -> p.id == videoGame.id }
         if (foundVideoGame != null) {
             videoGames.remove(foundVideoGame)
+            save(videoGames)
             logAll()
         }
     }
 
     override fun wipe() {
         videoGames.clear()
+        save(videoGames)
     }
 
     private fun logAll() {

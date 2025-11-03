@@ -47,9 +47,11 @@ class VideoGameActivity : AppCompatActivity() {
             binding.description.setText(videoGame.description)
             binding.developer.setText(videoGame.developer)
             binding.btnAdd.setText(R.string.save_VideoGame)
-            Picasso.get()
-                .load(videoGame.image)
-                .into(binding.VideoGameImage)
+            if(videoGame.image.isNotBlank()) {
+                Picasso.get()
+                    .load(videoGame.image)
+                    .into(binding.VideoGameImage)
+            }
             binding.btnDelete.visibility = VISIBLE
         }
 
