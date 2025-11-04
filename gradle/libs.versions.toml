@@ -13,7 +13,7 @@ timber = "1.5.1"
 kotlinPlugin = "2.2.10"
 picasso = "2.71828"
 kotlinSerialization = "2.2.21"
-gson = "2.8.8"
+gson = "2.13.2"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }

@@ -75,7 +75,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:layout_margin="8dp"
-                    android:hint="@string/hint_releasedVideoGameDate"
+                    android:hint="@string/hint_VideoGameDeveloper"
                     android:importantForAutofill="no"
                     android:datePickerMode="calendar"
                     android:maxLength="25"

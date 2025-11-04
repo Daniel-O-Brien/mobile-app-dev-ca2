@@ -8,6 +8,7 @@ import timber.log.Timber.i
 import java.io.File
 import java.io.FileOutputStream
 import java.io.ObjectOutputStream
+import java.time.LocalDate
 
 // https://medium.com/@zorbeytorunoglu/serialization-and-deserialization-on-kotlin-android-81596ac6da8e
 // https://developer.android.com/training/data-storage/app-specific
@@ -20,7 +21,7 @@ data class Data(val a : ArrayList<VideoGameModel>)
 
 class VideoGameFileStore(val context: Context): VideoGameStore {
 
-    lateinit var videoGames : ArrayList<VideoGameModel>
+    lateinit var videoGames: ArrayList<VideoGameModel>
 
     val gson = Gson()
 
@@ -28,22 +29,27 @@ class VideoGameFileStore(val context: Context): VideoGameStore {
 
     fun save(data: ArrayList<VideoGameModel>) {
         val file = gson.toJson(data)
+        i("1111" + data)
         context.openFileOutput("data", Context.MODE_PRIVATE).use {
             it.write(file.toByteArray())
+            i("2222" + file)
         }
     }
 
-    fun load(){
-        if(File(context.filesDir, "data").exists()) {
+    fun load() {
+        if (File(context.filesDir, "data").exists()) {
 
             val data = context.openFileInput("data").bufferedReader().use { it.readText() }
             i(data)
             if (!data.isEmpty()) {
                 videoGames = gson.fromJson<ArrayList<VideoGameModel>>(data, typeToken)
-            }
+
+                for (videoGame in videoGames)
+                    if (videoGame.releaseDate.toString() == "0000-00-00")
+                        videoGame.releaseDate = LocalDate.parse("1970-01-01")
+            } else
+                videoGames = ArrayList<VideoGameModel>()
         }
-        else
-            videoGames = ArrayList<VideoGameModel>()
     }
 
     override fun findAll(): List<VideoGameModel> {
@@ -52,6 +58,7 @@ class VideoGameFileStore(val context: Context): VideoGameStore {
 
     override fun create(videoGame: VideoGameModel) {
         videoGame.id = getId()
+        i("0000" + videoGame.toString())
         videoGames.add(videoGame)
         save(videoGames)
         logAll()
