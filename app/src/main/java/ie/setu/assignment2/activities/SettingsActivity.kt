@@ -1,13 +1,12 @@
-package ie.setu.assignment1.activities
+package ie.setu.assignment2.activities
 
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
-import ie.setu.assignment1.R
-import ie.setu.assignment1.databinding.ActivitySettingsBinding
-import ie.setu.assignment1.main.MainApp
-import timber.log.Timber.i
+import ie.setu.assignment2.R
+import ie.setu.assignment2.databinding.ActivitySettingsBinding
+import ie.setu.assignment2.main.MainApp
 
 class SettingsActivity : AppCompatActivity() {
 

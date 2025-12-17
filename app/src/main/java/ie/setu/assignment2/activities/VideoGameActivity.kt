@@ -1,4 +1,4 @@
-package ie.setu.assignment1.activities
+package ie.setu.assignment2.activities
 
 import android.content.Intent
 import android.os.Bundle
@@ -10,11 +10,11 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.snackbar.Snackbar
 import com.squareup.picasso.Picasso
-import ie.setu.assignment1.R
-import ie.setu.assignment1.databinding.ActivityVideogameBinding
-import ie.setu.assignment1.main.MainApp
-import ie.setu.assignment1.models.VideoGameModel
-import ie.setu.assignment1.helpers.showImagePicker
+import ie.setu.assignment2.R
+import ie.setu.assignment2.databinding.ActivityVideogameBinding
+import ie.setu.assignment2.main.MainApp
+import ie.setu.assignment2.models.VideoGameModel
+import ie.setu.assignment2.helpers.showImagePicker
 import timber.log.Timber.i
 import java.time.LocalDate
 

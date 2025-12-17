@@ -1,4 +1,4 @@
-package ie.setu.assignment1
+package ie.setu.assignment2
 
 import org.junit.Test
 

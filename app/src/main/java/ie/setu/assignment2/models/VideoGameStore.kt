@@ -1,4 +1,4 @@
-package ie.setu.assignment1.models
+package ie.setu.assignment2.models
 
 interface VideoGameStore {
     fun findAll(): List<VideoGameModel>

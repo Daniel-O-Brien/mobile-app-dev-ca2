@@ -1,10 +1,10 @@
-package ie.setu.assignment1.adapters
+package ie.setu.assignment2.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import ie.setu.assignment1.databinding.CardVideogameBinding
-import ie.setu.assignment1.models.VideoGameModel
+import ie.setu.assignment2.databinding.CardVideogameBinding
+import ie.setu.assignment2.models.VideoGameModel
 
 interface VideoGameListener {
     fun onVideoGameClick(VideoGame: VideoGameModel)

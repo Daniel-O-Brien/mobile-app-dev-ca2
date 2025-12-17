@@ -5,7 +5,7 @@ plugins {
 }
 // https://kotlinlang.org/docs/serialization.html
 android {
-    namespace = "ie.setu.assignment1"
+    namespace = "ie.setu.assignment2"
     compileSdk {
         version = release(36)
     }

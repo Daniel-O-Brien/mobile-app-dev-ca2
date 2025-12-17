@@ -1,6 +1,5 @@
-package ie.setu.assignment1.models
+package ie.setu.assignment2.models
 
-import android.net.Uri
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 import java.time.LocalDate

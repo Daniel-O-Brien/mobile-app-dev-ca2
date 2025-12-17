@@ -1,13 +1,10 @@
-package ie.setu.assignment1.models
+package ie.setu.assignment2.models
 
 import com.google.gson.Gson
 import android.content.Context
-import com.google.gson.GsonBuilder
 import com.google.gson.reflect.TypeToken
 import timber.log.Timber.i
 import java.io.File
-import java.io.FileOutputStream
-import java.io.ObjectOutputStream
 import java.time.LocalDate
 
 // https://medium.com/@zorbeytorunoglu/serialization-and-deserialization-on-kotlin-android-81596ac6da8e

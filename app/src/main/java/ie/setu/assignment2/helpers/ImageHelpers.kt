@@ -1,8 +1,8 @@
-package ie.setu.assignment1.helpers
+package ie.setu.assignment2.helpers
 
 import android.content.Intent
 import androidx.activity.result.ActivityResultLauncher
-import ie.setu.assignment1.R
+import ie.setu.assignment2.R
 
 fun showImagePicker(intentLauncher : ActivityResultLauncher<Intent>) {
 

@@ -1,8 +1,7 @@
-package ie.setu.assignment1.main
+package ie.setu.assignment2.main
 
 import android.app.Application
-import ie.setu.assignment1.models.VideoGameFileStore
-import ie.setu.assignment1.models.VideoGameMemStore
+import ie.setu.assignment2.models.VideoGameFileStore
 import timber.log.Timber
 import timber.log.Timber.i
 

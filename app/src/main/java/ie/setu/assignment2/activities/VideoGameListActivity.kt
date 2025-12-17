@@ -1,4 +1,4 @@
-package ie.setu.assignment1.activities
+package ie.setu.assignment2.activities
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,12 +7,12 @@ import android.view.MenuItem
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import ie.setu.assignment1.R
-import ie.setu.assignment1.adapters.VideoGameAdapter
-import ie.setu.assignment1.adapters.VideoGameListener
-import ie.setu.assignment1.databinding.ActivityVideogameListBinding
-import ie.setu.assignment1.main.MainApp
-import ie.setu.assignment1.models.VideoGameModel
+import ie.setu.assignment2.R
+import ie.setu.assignment2.adapters.VideoGameAdapter
+import ie.setu.assignment2.adapters.VideoGameListener
+import ie.setu.assignment2.databinding.ActivityVideogameListBinding
+import ie.setu.assignment2.main.MainApp
+import ie.setu.assignment2.models.VideoGameModel
 
 class VideoGameListActivity : AppCompatActivity(), VideoGameListener {
 
