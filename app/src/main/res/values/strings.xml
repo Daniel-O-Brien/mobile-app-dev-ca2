@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Assignment1</string>
+    <string name="app_name">Assignment2</string>
     <string name="button_addVideoGame">Add Video Game</string>
     <string name="hint_VideoGameTitle">Video Game Title</string>
     <string name="hint_VideoGameDescription">Description</string>
@@ -14,4 +14,8 @@
     <string name="button_wipeData">Wipe Data</string>
     <string name="menu_backSettings">Back</string>
     <string name="button_deleteVideoGame">Delete Video Game</string>
+    <string name="hint_Username">Username</string>
+    <string name="hint_Password">Password</string>
+    <string name="button_login"> Login </string>
+    <string name="button_signup"> Sign Up </string>
 </resources>

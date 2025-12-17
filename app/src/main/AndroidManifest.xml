@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.VideoGame"
         tools:targetApi="34">
-        <activity android:name=".activities.VideoGameListActivity"
+        <activity android:name=".activities.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

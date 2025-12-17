@@ -48,7 +48,7 @@ class VideoGameActivity : AppCompatActivity() {
             binding.description.setText(videoGame.description)
             binding.developer.setText(videoGame.developer)
             if(videoGame.releaseDate != null)
-            binding.released.updateDate(videoGame.releaseDate.year, videoGame.releaseDate.monthValue-1, videoGame.releaseDate.dayOfMonth)
+                binding.released.updateDate(videoGame.releaseDate.year, videoGame.releaseDate.monthValue-1, videoGame.releaseDate.dayOfMonth)
             binding.btnAdd.setText(R.string.save_VideoGame)
             if(videoGame.image.isNotBlank()) {
                 Picasso.get()
