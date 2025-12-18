@@ -60,6 +60,7 @@ class VideoGameActivity : AppCompatActivity() {
 
         binding.btnAdd.setOnClickListener() {
             videoGame.title = binding.videoGameTitle.text.toString()
+            videoGame.userId = app.currentUserId
             videoGame.description = binding.description.text.toString()
             videoGame.developer = binding.developer.text.toString()
             if (videoGame.title.isEmpty()) {

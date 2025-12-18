@@ -34,6 +34,7 @@ class LoginActivity : AppCompatActivity(){
             user.password = binding.username.text.toString()
             val loginUser = app.user.login(user)
             if (loginUser != null) {
+                app.updateCurrentUser(app.user.find(loginUser).id)
                 val launcherIntent = Intent(this, VideoGameListActivity::class.java)
                 startActivity(launcherIntent)
                 finish()
@@ -46,12 +47,9 @@ class LoginActivity : AppCompatActivity(){
             user.username = binding.username.text.toString()
             user.password = binding.username.text.toString()
             val newUser = app.user.signup(user)
-            if (newUser != null)
-                Snackbar.make(it, "Registered Successfully", Snackbar.LENGTH_LONG).show()
+            if (newUser != null) Snackbar.make(it, "Registered Successfully", Snackbar.LENGTH_LONG).show()
             else Snackbar.make(it, "User already exists", Snackbar.LENGTH_LONG).show()
         }
 
     }
-
-
 }
