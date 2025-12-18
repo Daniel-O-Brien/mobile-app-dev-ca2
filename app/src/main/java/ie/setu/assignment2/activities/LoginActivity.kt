@@ -39,7 +39,7 @@ class LoginActivity : AppCompatActivity(){
                 startActivity(launcherIntent)
                 finish()
             } else {
-                Snackbar.make(it,"Invalid username or password", Snackbar.LENGTH_LONG).show()
+                Snackbar.make(it,R.string.incorrect_login, Snackbar.LENGTH_LONG).show()
             }
         }
 
@@ -47,8 +47,8 @@ class LoginActivity : AppCompatActivity(){
             user.username = binding.username.text.toString()
             user.password = binding.username.text.toString()
             val newUser = app.user.signup(user)
-            if (newUser != null) Snackbar.make(it, "Registered Successfully", Snackbar.LENGTH_LONG).show()
-            else Snackbar.make(it, "User already exists", Snackbar.LENGTH_LONG).show()
+            if (newUser != null) Snackbar.make(it, R.string.registered, Snackbar.LENGTH_LONG).show()
+            else Snackbar.make(it, R.string.user_exists, Snackbar.LENGTH_LONG).show()
         }
 
     }
