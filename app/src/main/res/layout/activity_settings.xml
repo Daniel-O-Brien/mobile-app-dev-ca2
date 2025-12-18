@@ -52,6 +52,19 @@
                     android:textColor="@color/colorPrimary"
                     android:textSize="16sp"
                     tools:ignore="VisualLintButtonSize" />
+
+                <Button
+                    android:id="@+id/btnLogout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:background="@color/colorAccent"
+                    android:padding="8dp"
+                    android:stateListAnimator="@null"
+                    android:text="@string/button_logout"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="16sp"
+                    tools:ignore="VisualLintButtonSize" />
             </LinearLayout>
         </ScrollView>
 

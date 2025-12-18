@@ -40,6 +40,10 @@ class VideoGameListActivity : AppCompatActivity(), VideoGameListener {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
+            R.id.map -> {
+                val launcherIntent  = Intent(this, MapActivity::class.java)
+                getResult.launch(launcherIntent)
+            }
             R.id.item_add -> {
                 val launcherIntent = Intent(this, VideoGameActivity::class.java)
                 getResult.launch(launcherIntent)
