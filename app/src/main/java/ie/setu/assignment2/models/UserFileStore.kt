@@ -46,10 +46,7 @@ class UserFileStore(val context: Context): UserStore {
     }
 
     override fun login(user: UserModel): UserModel? {
-        if(users.any { it.username == user.username && it.password == user.password}){
-            return user
-        }
-        return null
+        return users.find { it.username == user.username && it.password == user.password}
     }
 
     override fun find(user: UserModel): UserModel {

@@ -31,7 +31,7 @@ class LoginActivity : AppCompatActivity(){
 
         binding.btnLogin.setOnClickListener() {
             user.username = binding.username.text.toString()
-            user.password = binding.username.text.toString()
+            user.password = binding.password.text.toString()
             val loginUser = app.user.login(user)
             if (loginUser != null) {
                 app.updateCurrentUser(app.user.find(loginUser).id)
