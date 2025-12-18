@@ -44,9 +44,10 @@ class VideoGameFileStore(val context: Context): VideoGameStore {
                 for (videoGame in videoGames)
                     if (videoGame.releaseDate.toString() == "0000-00-00")
                         videoGame.releaseDate = LocalDate.parse("1970-01-01")
-            } else
-                videoGames = ArrayList<VideoGameModel>()
+            }
         }
+        else
+            videoGames = ArrayList<VideoGameModel>()
     }
 
     override fun findAll(): List<VideoGameModel> {

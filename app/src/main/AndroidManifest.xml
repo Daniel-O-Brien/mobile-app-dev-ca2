@@ -23,6 +23,10 @@
             <meta-data android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+        <activity android:name=".activities.VideoGameListActivity">
+            <meta-data android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
         <activity android:name=".activities.VideoGameActivity">
             <meta-data android:name="android.app.lib_name"
                 android:value="" />
