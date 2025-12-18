@@ -1,5 +1,6 @@
 package ie.setu.assignment2.activities
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -26,6 +27,13 @@ class SettingsActivity : AppCompatActivity() {
         binding.btnWipe.setOnClickListener() {
             app.videoGame.wipe()
             setResult(RESULT_OK)
+            finish()
+        }
+
+        binding.btnLogout.setOnClickListener() {
+            app.updateCurrentUser(0L)
+            val launcherIntent = Intent(this, LoginActivity::class.java)
+            startActivity(launcherIntent)
             finish()
         }
     }
