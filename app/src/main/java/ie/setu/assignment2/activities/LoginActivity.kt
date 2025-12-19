@@ -4,12 +4,8 @@ package ie.setu.assignment2.activities
 
 import android.os.Bundle
 import android.content.Intent
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.LinearLayoutManager
-import ie.setu.assignment2.adapters.VideoGameAdapter
 import ie.setu.assignment2.databinding.ActivityLoginBinding
-import ie.setu.assignment2.databinding.ActivityVideogameBinding
 import ie.setu.assignment2.main.MainApp
 import ie.setu.assignment2.models.UserModel
 import ie.setu.assignment2.R

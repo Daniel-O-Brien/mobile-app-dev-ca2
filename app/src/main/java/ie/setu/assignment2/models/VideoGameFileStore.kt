@@ -38,6 +38,7 @@ class VideoGameFileStore(val context: Context): VideoGameStore {
             val data = context.openFileInput("data").bufferedReader().use { it.readText() }
             if (!data.isEmpty()) {
                 allVideoGames = gson.fromJson<ArrayList<VideoGameModel>>(data, typeToken)
+                i("321232123" + allVideoGames)
                 videoGames = allVideoGames.filter { it.userId == userId } as ArrayList<VideoGameModel>
                 for (videoGame in videoGames)
                     if (videoGame.releaseDate.toString() == "0000-00-00")

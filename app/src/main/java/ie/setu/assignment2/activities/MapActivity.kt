@@ -2,6 +2,7 @@ package ie.setu.assignment2.activities
 
 import android.Manifest
 import android.content.pm.PackageManager
+import android.location.Geocoder
 import android.location.Location
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -17,6 +18,8 @@ import com.google.android.gms.maps.model.MarkerOptions
 import ie.setu.assignment2.R
 import ie.setu.assignment2.databinding.ActivityMapBinding
 import ie.setu.assignment2.models.ShopModel
+import timber.log.Timber.i
+import java.util.Locale
 
 //https://developers.google.com/android/reference/com/google/android/gms/location/FusedLocationProviderClient
 
@@ -25,6 +28,8 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
     private lateinit var mMap: GoogleMap
     private lateinit var binding: ActivityMapBinding
     private lateinit var fusedLocationClient: FusedLocationProviderClient
+
+//    private val shops = listOf("CeX", "Smyths Toys Superstores", "Ken Black Toys & Nursery", "The Retro Gaming Store plus")
 
     private val shops = listOf(
         ShopModel("CEX", LatLng(52.338464941659275, -6.461739201940897)),
@@ -42,7 +47,6 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
 
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
 
-        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
@@ -72,7 +76,6 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
         // Check for location permissions
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
             ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            // Request permissions
             ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), 1)
             return
         }
@@ -84,7 +87,6 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
         fusedLocationClient.lastLocation.addOnSuccessListener { location: Location? ->
             if (location != null) {
                 val currentLatLng = LatLng(location.latitude, location.longitude)
-//                mMap.addMarker(MarkerOptions().position(currentLatLng).title("You are here"))
                 mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(currentLatLng, 15f))
             }
         }
@@ -92,7 +94,32 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
         for (shop in shops) {
             mMap.addMarker(MarkerOptions().position(shop.location).title(shop.name))
         }
+
+//        for (shopName in shops) {
+//            geocodeShop(shopName)
+//        }
     }
+
+    //Couldn't get working properly
+
+//    private fun geocodeShop(shopName: String) {
+//        val geocoder = Geocoder(this, Locale.getDefault())
+//        Thread {
+//            try {
+//                val addresses = geocoder.getFromLocationName(shopName, 5)!!
+//                i("Address: " + addresses + "ShopName: " + shopName)
+//                if (addresses.isNotEmpty()) {
+//                    val address = addresses[0]
+//                    val latLng = LatLng(address.latitude, address.longitude)
+//                    runOnUiThread {
+//                        mMap.addMarker(MarkerOptions().position(latLng).title(shopName))
+//                    }
+//                }
+//            } catch (e: Exception) {
+//                e.printStackTrace()
+//            }
+//        }.start()
+//    }
 
     // Handle permission request response
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
