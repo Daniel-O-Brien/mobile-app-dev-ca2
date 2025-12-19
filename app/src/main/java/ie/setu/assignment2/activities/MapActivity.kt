@@ -16,6 +16,7 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import ie.setu.assignment2.R
 import ie.setu.assignment2.databinding.ActivityMapBinding
+import ie.setu.assignment2.models.ShopModel
 
 //https://developers.google.com/android/reference/com/google/android/gms/location/FusedLocationProviderClient
 
@@ -25,21 +26,12 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
     private lateinit var binding: ActivityMapBinding
     private lateinit var fusedLocationClient: FusedLocationProviderClient
 
-    private val cexStores = listOf(
-        LatLng(52.338464941659275, -6.461739201940897),
-        LatLng(52.26023569713962, -7.1116102756176796)
-    )
-
-    private val smithsToysStores = listOf(
-        LatLng(52.249689898304005, -7.118675816142929)
-    )
-
-    private val kenBlackStores = listOf(
-        LatLng(52.32625698224165, -6.489213593842555)
-    )
-
-    private val otherStores = listOf(
-        LatLng(52.33696998042763, -6.46065961635431)
+    private val shops = listOf(
+        ShopModel("CEX", LatLng(52.338464941659275, -6.461739201940897)),
+        ShopModel("CEX", LatLng(52.26023569713962, -7.1116102756176796)),
+        ShopModel("Smiths Toys", LatLng(52.249689898304005, -7.118675816142929)),
+        ShopModel("Ken Black", LatLng(52.32625698224165, -6.489213593842555)),
+        ShopModel("The Retro Gaming Store plus", LatLng(52.33696998042763, -6.46065961635431))
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -97,17 +89,8 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
             }
         }
 
-        for (store in cexStores) {
-            mMap.addMarker(MarkerOptions().position(store).title("CEX Store"))
-        }
-        for (store in smithsToysStores) {
-            mMap.addMarker(MarkerOptions().position(store).title("Smith Toys Store"))
-        }
-        for (store in kenBlackStores) {
-            mMap.addMarker(MarkerOptions().position(store).title("Keb Black Store"))
-        }
-        for (store in otherStores) {
-            mMap.addMarker(MarkerOptions().position(store).title("Game Store"))
+        for (shop in shops) {
+            mMap.addMarker(MarkerOptions().position(shop.location).title(shop.name))
         }
     }
 
