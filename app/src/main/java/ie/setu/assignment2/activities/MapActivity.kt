@@ -21,13 +21,16 @@ import ie.setu.assignment2.models.ShopModel
 import timber.log.Timber.i
 import java.util.Locale
 
+//References:
 //https://developers.google.com/android/reference/com/google/android/gms/location/FusedLocationProviderClient
+//https://developer.android.com/develop/sensors-and-location/location/retrieve-current
+//https://developer.android.com/reference/kotlin/android/location/Geocoder
 
 class MapActivity : AppCompatActivity(), OnMapReadyCallback {
 
     private lateinit var mMap: GoogleMap
     private lateinit var binding: ActivityMapBinding
-    private lateinit var fusedLocationClient: FusedLocationProviderClient
+    private lateinit var `fusedLocationClient`: FusedLocationProviderClient
 
 //    private val shops = listOf("CeX", "Smyths Toys Superstores", "Ken Black Toys & Nursery", "The Retro Gaming Store plus")
 
